@@ -1,0 +1,57 @@
+class User {
+  String email;
+  String firstName;
+  String lastName;
+  String password;
+  String dob;
+}
+
+class Reservation {
+  String email;
+  int numDays;
+  String fromDate;
+  String toDate;
+  int numPersons;
+  int numRooms;
+}
+
+class FileManager {
+  +saveUser(User user);
+  +loadUsers();
+  +saveReservation(Reservation reservation);
+  +loadReservations();
+  +updateReservation(String email);
+  +deleteReservation(String email);
+}
+
+class Validation {
+  +validateEmail(String email);
+  +validateName(String name);
+  +validatePassword(String password);
+  +validateDate(String date);
+  +validateInt(int value);
+}
+//$?[End_of_model]$?
+
+namespace -;
+
+
+class User
+{
+  position 50 30 109 45;
+}
+
+class Reservation
+{
+  position 50 130 109 45;
+}
+
+class FileManager
+{
+  position 50 230 109 45;
+}
+
+class Validation
+{
+  position 50 330 109 45;
+}
