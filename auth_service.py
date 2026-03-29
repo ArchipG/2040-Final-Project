@@ -1,21 +1,10 @@
-# auth_service.py
-
-# Import the User model
 from models import User
-
-# Import the Validation class
 from validation import Validation
-
 
 class AuthService:
 
     def __init__(self, file_manager):
-        """
-        Constructor for the AuthService class.
-
-        file_manager is used to save users,
-        load users, and check login information.
-        """
+    
         self.file_manager = file_manager
 
     def register(self):
