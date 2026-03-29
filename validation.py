@@ -33,7 +33,7 @@ class Validation:
         return password
 
     @staticmethod
-    def validate_date(date_str):
+    def validate_future_date(date_str):
         if not date_str:
             raise ValueError("Date cannot be empty")
 
@@ -47,9 +47,30 @@ class Validation:
             raise ValueError("Invalid calendar date")
 
         today = date.today()
-        
+
         if parsed_date < today:
             raise ValueError("Date cannot be in the past")
+
+        return date_str
+
+    @staticmethod
+    def validate_dob(date_str):
+        if not date_str:
+            raise ValueError("Date cannot be empty")
+
+        pattern = r'^\d{4}-\d{2}-\d{2}$'
+        if not re.match(pattern, date_str):
+            raise ValueError("Date must be in YYYY-MM-DD format")
+
+        try:
+            parsed_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+        except ValueError:
+            raise ValueError("Invalid calendar date")
+
+        today = date.today()
+
+        if parsed_date > today:
+            raise ValueError("Date of birth cannot be in the future")
 
         return date_str
 

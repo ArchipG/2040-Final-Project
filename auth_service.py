@@ -57,7 +57,7 @@ class AuthService:
         while True:
             try:
                 dob = input("Date of Birth (YYYY-MM-DD): ")
-                dob = Validation.validate_date(dob)
+                dob = Validation.validate_dob(dob)
                 break
             except ValueError as e:
                 print(f"Error: {e}")

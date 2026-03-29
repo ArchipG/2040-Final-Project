@@ -63,7 +63,7 @@ class ReservationService:
         while True:
             try:
                 from_date = input("From Date (YYYY-MM-DD): ")
-                from_date = Validation.validate_date(from_date)
+                from_date = Validation.validate_future_date(from_date)
                 break
             except ValueError as e:
                 print(e)
@@ -72,7 +72,7 @@ class ReservationService:
         while True:
             try:
                 to_date = input("To Date (YYYY-MM-DD): ")
-                to_date = Validation.validate_date(to_date)
+                to_date = Validation.validate_future_date(to_date)
                 break
             except ValueError as e:
                 print(e)
@@ -150,7 +150,7 @@ class ReservationService:
         while True:
             try:
                 from_date = input("From Date (YYYY-MM-DD): ")
-                from_date = Validation.validate_date(from_date)
+                from_date = Validation.validate_future_date(from_date)
                 break
             except ValueError as e:
                 print(e)
@@ -159,7 +159,7 @@ class ReservationService:
         while True:
             try:
                 to_date = input("To Date (YYYY-MM-DD): ")
-                to_date = Validation.validate_date(to_date)
+                to_date = Validation.validate_future_date(to_date)
                 break
             except ValueError as e:
                 print(e)
