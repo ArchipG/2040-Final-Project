@@ -1,5 +1,7 @@
+# This class represents a registered user
 class User:
     def __init__(self, email, first_name, last_name, password, dob):
+
         self.email = email
         self.first_name = first_name
         self.last_name = last_name
@@ -7,6 +9,7 @@ class User:
         self.dob = dob
 
     def to_dict(self):
+    
         return {
             "email": self.email,
             "first_name": self.first_name,
@@ -16,6 +19,7 @@ class User:
         }
 
 
+# This class represents a reservation made by a user
 class Reservation:
     def __init__(self, email, num_days, from_date, to_date, num_persons, num_rooms):
         self.email = email
