@@ -1,0 +1,80 @@
+class Exception {}
+
+class InvalidInputError {
+  isA Exception;
+}
+
+class ReservationError {
+  isA Exception;
+}
+
+class AuthenticationError {
+  isA Exception;
+}
+
+class User {
+  email;
+  firstName;
+  lastName;
+  password;
+  dob;
+  
+  // Association: A User has many Reservations
+  1 -- * Reservation;
+}
+
+class Reservation {
+  email;
+  Integer numDays;
+  fromDate;
+  toDate;
+  Integer numPersons;
+  Integer numRooms;
+}
+
+class FileManager {
+  userFile;
+  reservationFile;
+  
+  // Associations managed by the file system
+  1 -- * User;
+  1 -- * Reservation;
+}
+
+class Validation {}
+
+class AuthService {
+  // Navigation to dependencies
+  1 -- 1 FileManager;
+  1 -- 1 Validation;
+}
+
+class ReservationService {
+  1 -- 1 FileManager;
+  1 -- 1 Validation;
+}
+
+class Menu {
+  1 -- 1 AuthService;
+  1 -- 1 ReservationService;
+}
+
+class Main {
+  1 -- 1 Menu;
+}
+
+// Layout information kept at the bottom
+namespace -;
+
+class Exception { position 520 20 120 45; }
+class InvalidInputError { position 500 90 160 45; }
+class ReservationError { position 500 160 160 45; }
+class AuthenticationError { position 490 230 180 45; }
+class User { position 40 20 150 100; }
+class Reservation { position 270 20 160 110; }
+class FileManager { position 40 190 170 80; }
+class Validation { position 270 190 140 60; }
+class AuthService { position 40 340 150 60; }
+class ReservationService { position 260 340 190 70; }
+class Menu { position 40 490 130 60; }
+class Main { position 260 490 100 50; }

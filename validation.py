@@ -25,7 +25,11 @@ class Validation:
             raise ValueError("Password cannot be empty")
         if len(password) < 4:
             raise ValueError("Password must be at least 4 characters")
+<<<<<<< HEAD
         return password
+=======
+        return True
+>>>>>>> bad3fdf44974894d018dc4f3333d79061ad43e06
     
     @staticmethod
     def validate_date(date):
@@ -39,10 +43,13 @@ class Validation:
 
     # Split into year, month, day
         year, month, day = map(int, date.split("-"))
+<<<<<<< HEAD
         
     # Check valid year
         if year < 1900 or year > 2100:
             raise ValueError("Year must be between 1900 and 2100")
+=======
+>>>>>>> bad3fdf44974894d018dc4f3333d79061ad43e06
 
     # Check valid month
         if month < 1 or month > 12:
