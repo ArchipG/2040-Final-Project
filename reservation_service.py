@@ -1,4 +1,5 @@
 # reservation_service.py
+from datetime import datetime
 
 # Import the Reservation model
 from models import Reservation
@@ -58,15 +59,6 @@ class ReservationService:
         """
         print("\n--- Make Reservation ---")
 
-        # Get and validate number of days
-        while True:
-            try:
-                num_days = input("Number of days: ")
-                num_days = Validation.validate_int(num_days)
-                break
-            except ValueError as e:
-                print(e)
-
         # Get and validate from date
         while True:
             try:
@@ -84,6 +76,16 @@ class ReservationService:
                 break
             except ValueError as e:
                 print(e)
+
+        # convert to datetime objects
+        from_date_obj = datetime.strptime(from_date, "%Y-%m-%d").date()
+        to_date_obj = datetime.strptime(to_date, "%Y-%m-%d").date()
+
+        num_days = (to_date_obj - from_date_obj).days
+
+        if num_days <= 0:
+            print("To date must be after from date")
+            return
 
         # Get and validate number of persons
         while True:
@@ -144,15 +146,6 @@ class ReservationService:
 
         print("\n--- Enter Updated Reservation Details ---")
 
-        # Get and validate updated number of days
-        while True:
-            try:
-                num_days = input("Number of days: ")
-                num_days = Validation.validate_int(num_days)
-                break
-            except ValueError as e:
-                print(e)
-
         # Get and validate updated from date
         while True:
             try:
@@ -170,6 +163,16 @@ class ReservationService:
                 break
             except ValueError as e:
                 print(e)
+
+        # convert to datetime objects
+        from_date_obj = datetime.strptime(from_date, "%Y-%m-%d").date()
+        to_date_obj = datetime.strptime(to_date, "%Y-%m-%d").date()
+
+        num_days = (to_date_obj - from_date_obj).days
+
+        if num_days <= 0:
+            print("To date must be after from date")
+            return
 
         # Get and validate updated number of persons
         while True:
