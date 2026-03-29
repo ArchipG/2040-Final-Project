@@ -26,16 +26,37 @@ class Validation:
         if len(password) < 4:
             raise ValueError("Password must be at least 4 characters")
         return True
-
+    
     @staticmethod
     def validate_date(date):
         if not date:
             raise ValueError("Date cannot be empty")
-        # simple format check: YYYY-MM-DD
+
+    # simple format check: YYYY-MM-DD
         pattern = r'^\d{4}-\d{2}-\d{2}$'
         if not re.match(pattern, date):
             raise ValueError("Date must be in YYYY-MM-DD format")
-        return True
+
+    # Split into year, month, day
+        year, month, day = map(int, date.split("-"))
+
+    # Check valid month
+        if month < 1 or month > 12:
+            raise ValueError("Month must be between 01 and 12")
+
+    # Days in each month
+        days_in_month = {
+        1: 31, 2: 28, 3: 31, 4: 30,
+        5: 31, 6: 30, 7: 31, 8: 31,
+        9: 30, 10: 31, 11: 30, 12: 31
+    }
+
+    # Check valid day
+        if day < 1 or day > days_in_month[month]:
+            raise ValueError("Invalid day for the given month")
+
+        return date
+
 
     @staticmethod
     def validate_int(value):
