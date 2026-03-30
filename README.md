@@ -1,2 +1,4 @@
 # 2040-Final-Project
-A Restaurant Reservation System using Python. 
+This project is a console-based Reservation System that lets users create an account, log in, and manage their bookings. After registering, users can view their reservations, make new ones, update existing reservations, or cancel them. The system stores all data in files and includes input validation and error handling to make sure everything runs smoothly and prevents crashes. Overall, the goal of the project was to build a simple but functional booking system while applying object-oriented programming concepts.
+
+This project was completed collaboratively by Gesly and Ebu, with both members contributing equally to the final result. Work was split up to keep things organized. Gesly worked on file handling, exception handling, models, the file manager, and the menu system. Ebu focused on implementing the UML class diagram and the reservation logic, validation, and authentication service.
